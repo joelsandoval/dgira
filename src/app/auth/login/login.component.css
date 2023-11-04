@@ -1,0 +1,32 @@
+mat-card {
+    max-width: 400px !important;
+    margin: 2em auto;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+}
+
+mat-form-field {
+    display: block;
+}
+
+.barra-inversa {
+    background-color: #691C32;
+    border-color: transparent;
+    width: 100%;
+    height: 60px;
+}
+
+.logo {
+    margin-top: 10px;
+}
+
+.subse {
+    text-align: right;
+    color: antiquewhite;
+}
+
+.full-width-input{
+    color: #0C231E;
+    
+}

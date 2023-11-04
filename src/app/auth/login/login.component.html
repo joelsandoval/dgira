@@ -1,0 +1,74 @@
+<nav class="barra-inversa">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <span class="clavePrin float-right subse">
+                    <strong style="text-align: right; color:darkgray;">Subsecretaría de Regulación Ambiental</strong><br />
+                    <small style="text-align: right; color:darkgray;">Dirección General de Impacto y Riesgo
+                        Ambiental</small>
+                </span>
+                <a class="float-left logo" href="https://www.gob.mx/">
+                    <img src="./assets/img/medio_ambiente_blanco.png" width="200"
+                        alt="Página de inicio, Gobierno de México">
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row" style="height: 800px;">
+        <div class="col col-md-3" style="background-color: #691C32;" >
+            <br />
+            <div class="row">
+                <div class="col col-md-12">
+                    <h1 style="font-weight: bolder; color: #FFF;">
+                        <mat-icon fontIcon="eco" style="color: #BC955C;"></mat-icon>
+                        MIRA<sup style="color: #BC955C;">2.3</sup>
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-12" style="color: #FFF;">
+                    Monitor de Impacto y Riesgo Ambiental
+                </div>
+            </div>
+            <hr style="color: #FFF;" />
+            <h1 class="float-right">
+
+            </h1>
+        </div>
+        <div class="col col-md-9">
+            <br />
+            <br />
+            <div class="row">
+                <div class="col col-md-6" style="color: #FFF;">
+                    <h2>Iniciar</h2>
+                    <hr />
+                    <form>
+                        <mat-error *ngIf="loginInvalid">
+                            El usuario o contraseña son incorrectos
+                        </mat-error>
+                        <mat-form-field appearance="outline" class="full-width-input">
+                            <mat-label>Nombre de usuario</mat-label>
+                            <input matInput placeholder="Usuario" [(ngModel)]="login.username" required name="username">
+                            <mat-error>
+                                Introduzca un usuario válido
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="full-width-input">
+                            <mat-label>Contraseña</mat-label>
+                            <input matInput placeholder="Contraseña" [(ngModel)]="login.password" required
+                                name="password" type="password">
+                            <mat-error>
+                                Provea una contraseña válida
+                            </mat-error>
+                        </mat-form-field>
+                        <button mat-raised-button (click)="loginMIRA()" class="float-right"
+                            style="background-color: #691C32; color: #FFF;" >Ingresar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-http-loader></ng-http-loader>

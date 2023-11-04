@@ -1,0 +1,15 @@
+/* Comentarios de la hoja de estilo barra*/
+.btn-outline-warning {
+    border-color: #BC955C !important;
+
+}
+
+.btn-outline-warning:hover {
+    color: #212529;
+    background-color: #BC955C !important;
+    border-color: #BC955C !important
+}
+
+.btn-outline-warning.focus, .btn-outline-warning:focus {
+    box-shadow: 0 0 0 .2rem rgba(255, 193, 7, .5)
+}

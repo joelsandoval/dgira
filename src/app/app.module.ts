@@ -3,16 +3,43 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthenticateComponent } from './auth/authenticate/authenticate.component';
+import { LoginComponent } from './auth/login/login.component';
+import { NotFoundComponent } from './auth/not-found/not-found.component';
+import { VisorComponent } from './visor/visor.component';
+import { AvisosComponent } from './visor/avisos/avisos.component';
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import { MatFormFieldModule, MatIconModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { TopBarComponent } from './top-bar/top-bar.component';
+import { MessagesComponent } from './messages/messages.component';
+import { HttpClientModule } from '@angular/common/http';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    AuthenticateComponent,
+    VisorComponent,
+    NotFoundComponent,
+    AvisosComponent,
+    TopBarComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
+    MatIconModule,
+    MatFormFieldModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

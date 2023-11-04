@@ -1,0 +1,11 @@
+<div class="alert alert-secondary" *ngIf="messageService.messages.length">
+    <div class="row">
+            <button (click)="messageService.clear()" 
+            class="btn btn-info btn-sm float-right" type="button">Limpiar</button>
+    </div>    
+    <ul>
+        <li *ngFor='let message of messageService.messages'> 
+            {{message}} 
+        </li>
+    </ul>
+</div>

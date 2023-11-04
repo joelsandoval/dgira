@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ApiConfig: {
+    rutaBase:  'http://localhost:8084/ws-dgira/',
+    rutaSigeia: 'http://localhost:8084/ws-sigeia/',
+    rutaSinat: 'http://localhost:8084/ws-sinat/',
+    rutaAdmin: 'http://localhost:8084/ws-admin/',
+    sinatApi: 'http://localhost:8084/sinat_api/',
+    rutaAuth: 'https://app.semarnat.gob.mx/sigeia/api/login/eva',
+    rutaSigeiaWeb: 'https://mapas.semarnat.gob.mx/sigeia/#/authenticate/',
+  }
 };
 
 /*

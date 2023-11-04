@@ -1,0 +1,160 @@
+<nav class="navbar navbar-expand-lg navbar-dark tram-1 color-vino-4t-bg">
+    <a class="navbar-brand" routerLink="/visor" title="Monitor de impacto y riesgo ambiental">
+        <mat-icon fontIcon="eco" class="color-dorado-4t"></mat-icon> MIRA<sup style="color: #BC955C;">2.3</sup>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown"
+                *ngIf="entidad == 9 && (permisos.includes('C001PRI') || permisos.includes('A001SYS') || permisos.includes('C006PRI'))">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Proyectos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/dgira-tablero/0"
+                        *ngIf="permisos.includes('A001SYS') || permisos.includes('C001PRI')">
+                        <mat-icon style="color:darkred;" [style.font-size.em]="1.2">wb_incandescent</mat-icon>
+                        Seguimiento especial</a>
+                    <a class="dropdown-item" [routerLink]="['/dgira-tablero', user]"
+                        *ngIf="permisos.includes('C006PRI')">
+                        <mat-icon style="color:darkred;" [style.font-size.em]="1.2">wb_incandescent</mat-icon>
+                        Seguimiento especial</a>
+                    <a class="dropdown-item" [routerLink]="['/evaluacion', entidad]"
+                        *ngIf="permisos.includes('C006PRI') || permisos.includes('A001SYS')">
+                        <mat-icon style="color:orange;" [style.font-size.em]="1.2">wb_incandescent</mat-icon>
+                        Focos amarillos
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/consultas', 'activas']">
+                        <mat-icon style="color:darkred;" [style.font-size.em]="1.2">question_answer</mat-icon>
+                        Consultas públicas
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/reuniones', 'activas']">
+                        <mat-icon style="color:darkred;" [style.font-size.em]="1.2">groups</mat-icon>
+                        Reuniones públicas
+                    </a>
+                </div>
+
+                
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/tramites-mod', 0, 1, '-']" *ngIf="permisos.includes('M005ECC')">
+                    Trámites
+                </a>
+                <a class="nav-link" [routerLink]="['/tramites-mod', 2, 1, '-']" *ngIf="permisos.includes('R009EVA') && direccion != 22">
+                    Trámites
+                </a>
+                <a class="nav-link" [routerLink]="['/tramites-mod', 3, 1, '-']" *ngIf="permisos.includes('R003EVA')">
+                    Trámites
+                </a>
+            </li>
+            <li class="nav-item" *ngIf="permisos.includes('O023VER')">
+                <a class="nav-link" [routerLink]="['/oficios-mod', 0, 0, direccion]">
+                    Oficios
+                </a>
+            </li>
+            <li class="nav-item" *ngIf="permisos.includes('O023VER')">
+                <a class="nav-link" [routerLink]="['/correspondencia', 0, 1, direccion]">
+                    Correspondencia
+                </a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" [routerLink]="['archivo', 0, 0,'X']" *ngIf="permisos.includes('E004ING')">
+                    Archivo
+                </a>
+                <a class="nav-link" [routerLink]="['archivo', 1, 0,'X']" *ngIf="permisos.includes('E005PRE')">
+                    Archivo
+                </a>
+            </li>
+            <li class="nav-item dropdown" *ngIf="permisos.includes('R100MEN') || permisos.includes('A001SYS')">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Reportes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/por-tipo', 0]"
+                        *ngIf="permisos.includes('R101ACU') || permisos.includes('A001SYS')">
+                        <mat-icon style="color:darkred;" [style.font-size.em]="1.3">fact_check</mat-icon>
+                        Solicitudes de acuerdo
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/por-tipo', direccion]"
+                        *ngIf="permisos.includes('R102ACU')">
+                        <mat-icon style="color:darkred;" [style.font-size.em]="1.3">fact_check</mat-icon>
+                        Solicitudes de acuerdo
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/mineros']" *ngIf="permisos.includes('T005MIN')">
+                        <mat-icon style="color:darkred;" [style.font-size.em]="1.3">diamond</mat-icon>
+                        Trámites mineros
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown float-right">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <mat-icon fontIcon="account_circle"></mat-icon>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/sys-admin" *ngIf="permisos.includes('A001SYS')">
+                        <mat-icon style="color:darkred;" [style.font-size.em]="1.2">settings</mat-icon>
+                        Configurar</a>
+                    <a class="dropdown-item" href="{{ server }}" *ngIf="permisos.includes('A001SYS')">
+                        <mat-icon style="color:darkred;" [style.font-size.em]="1.2">settings</mat-icon>
+                        Documentación</a>
+                    <a class="dropdown-item" [routerLink]="[]" (click)="logout()">
+                        <mat-icon style="color:darkred;" [style.font-size.em]="1.2">exit_to_app</mat-icon>
+                        Cerrar sesión ({{ inis }})</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" [class]="cTramites" (click)="cambiaBusqueda(1);" title="Busca trámites"
+                            *ngIf="permisos.includes('M006BUT') || permisos.includes('A001SYS')">T</button>
+                        <button type="button" [class]="cOficios" (click)="cambiaBusqueda(2);" title="Busca oficios"
+                            *ngIf="permisos.includes('M007BUO') || permisos.includes('M009BUO') || permisos.includes('M010BUO') || permisos.includes('A001SYS')">O</button>
+                        <button type="button" [class]="cDgiras" (click)="cambiaBusqueda(3);" title="Busca DGIRA's"
+                            *ngIf="entidad == 9 && permisos.includes('M008BUC') || permisos.includes('M013BUC') || permisos.includes('M014BUC') || permisos.includes('A001SYS')">D</button>
+                    </div>
+                </div>
+                <input class="form-control" type="search" [(ngModel)]="busqueda" (change)="replaceSlash(this.busqueda)"
+                    [ngModelOptions]="{standalone: true}" [placeholder]="place" aria-label="Search"
+                    *ngIf="permisos.includes('M006BUT') || permisos.includes('M007BUO') || permisos.includes('M008BUC') || permisos.includes('M009BUO') || 
+                    permisos.includes('M010BUO') || permisos.includes('M013BUC') || permisos.includes('M014BUC') || permisos.includes('A001SYS')">
+                <div class="input-group-append">
+                    <button *ngIf="bTramites && (permisos.includes('M006BUT') || permisos.includes('A001SYS'))"
+                        class="btn btn-outline-warning" [routerLink]="['/tramites', busqueda]" type="submit"
+                        [disabled]="busqueda.length <= 3">Buscar</button>
+                    <button *ngIf="bOficios && (permisos.includes('M007BUO') || permisos.includes('A001SYS'))"
+                        class="btn btn-outline-warning" [routerLink]="['/documentos', busqueda, 1]" type="submit"
+                        [disabled]="busqueda.length <= 3" id="todos">Buscar</button>
+                    <button *ngIf="bOficios && permisos.includes('M009BUO')" class="btn btn-outline-warning"
+                        [routerLink]="['/documentos', busqueda, 2]" type="submit"
+                        [disabled]="busqueda.length <= 3" id="reservados">Buscar</button>
+                    <button *ngIf="bOficios && permisos.includes('M010BUO')" class="btn btn-outline-warning"
+                        [routerLink]="['/documentos', busqueda, 3]" type="submit"
+                        [disabled]="busqueda.length <= 3" id="propios">Buscar</button>
+                    <button *ngIf="bDgiras && (permisos.includes('M008BUC') || permisos.includes('A001SYS'))"
+                        class="btn btn-outline-warning" [routerLink]="['/dgiras', busqueda, 1]" type="submit"
+                        [disabled]="busqueda.length <= 3">Buscar</button>
+                    <button *ngIf="bDgiras && permisos.includes('M013BUC')" class="btn btn-outline-warning"
+                        [routerLink]="['/dgiras', busqueda, 2]" type="submit"
+                        [disabled]="busqueda.length <= 3">Buscar</button>
+                    <button *ngIf="bDgiras && permisos.includes('M014BUC')" class="btn btn-outline-warning"
+                        [routerLink]="['/dgiras', busqueda, 3]" type="submit"
+                        [disabled]="busqueda.length <= 3">Buscar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</nav>
