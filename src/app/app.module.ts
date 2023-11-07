@@ -9,13 +9,15 @@ import { NotFoundComponent } from './auth/not-found/not-found.component';
 import { VisorComponent } from './visor/visor.component';
 import { AvisosComponent } from './visor/avisos/avisos.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
-import { MatFormFieldModule, MatIconModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from './auth/auth.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -33,9 +35,12 @@ import { AuthService } from './auth/auth.service';
     AppRoutingModule,
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
+    FlexLayoutModule, 
+    FormsModule,
+    ReactiveFormsModule,
     MatIconModule,
     MatFormFieldModule,
-    FormsModule
+    MatInputModule
   ],
   providers: [
     AuthService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService
