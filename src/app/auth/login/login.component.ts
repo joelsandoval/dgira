@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Login } from 'src/app/model/login';
-import { FormBuilder, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
-import { Md5 } from 'ts-md5';
+//import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +26,7 @@ export class LoginComponent  {
   ) { }
 
      /* AQUI DEFINIMOS LA TEMATICA DE NUESTRA IMAGEN*/
-  styleImage = 'rain';
+  styleImage = 'nature';
 
   
   ngOnInit(): void {

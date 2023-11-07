@@ -9,7 +9,6 @@ import { NotFoundComponent } from './auth/not-found/not-found.component';
 import { VisorComponent } from './visor/visor.component';
 import { AvisosComponent } from './visor/avisos/avisos.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
-import { MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -17,6 +16,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from './auth/auth.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -35,12 +39,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppRoutingModule,
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
-    FlexLayoutModule, 
+    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule,
+    BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     AuthService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService
