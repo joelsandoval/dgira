@@ -1,16 +1,16 @@
 export class Login {
-    username: string;
+    usuario: string;
     password: string;
     folio: string;
     serial: number;
 
     constructor(
-        username: string,
+        usuario: string,
         password: string,
         folio: string,
         serial: number
     ) {
-        this.username = username;
+        this.usuario = usuario;
         this.password = password;
         this.folio = folio;
         this.serial = serial;

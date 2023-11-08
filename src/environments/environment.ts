@@ -10,7 +10,7 @@ export const environment = {
     rutaSinat: 'http://localhost:8084/ws-sinat/',
     rutaAdmin: 'http://localhost:8084/ws-admin/',
     sinatApi: 'http://localhost:8084/sinat_api/',
-    rutaAuth: 'https://app.semarnat.gob.mx/sigeia/api/login/eva',
+    rutaAuth: 'https://app.semarnat.gob.mx/ws-authserver-desa/ws-sinat-tramites/seguridad/',
     rutaSigeiaWeb: 'https://mapas.semarnat.gob.mx/sigeia/#/authenticate/',
   }
 };

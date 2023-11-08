@@ -19,11 +19,11 @@ export class AppComponent {
     ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        gtag('config', 'G-RH27TRLVZC',
+/*         gtag('config', 'G-6Y83QBDTWQ',
           {
             page_path: event.urlAfterRedirects
           }
-          );
+          ); */
           this.autenticado = this.auth.isAuthenticated();
       }
     });

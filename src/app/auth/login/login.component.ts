@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
-//import { Md5 } from 'ts-md5';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-login',
@@ -12,33 +12,33 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
   styleUrls: ['./login.component.css'],
   providers: [AuthService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService]
 })
-export class LoginComponent  {
+export class LoginComponent {
 
-  logi: Login = new Login('','','09/DL-0155/04/19',2);
-  token!: string;
+  
+  //token!: string;
   loginInvalid!: boolean;
   form!: FormGroup;
 
-    constructor(    
+  constructor(
     private service: AuthService,
-    private router: Router,  
-    private formBuilder: FormBuilder  
+    private router: Router,
+    private formBuilder: FormBuilder
   ) { }
 
-     /* AQUI DEFINIMOS LA TEMATICA DE NUESTRA IMAGEN*/
+  /* AQUI DEFINIMOS LA TEMATICA DE NUESTRA IMAGEN*/
   styleImage = 'nature';
 
-  
+
   ngOnInit(): void {
     this.buildForm();
   }
-  
+
   private buildForm(): any {
 
     this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-        });
+    });
   }
   /* ESTA FUNCION ES ACTIVADA POR EL NGSTYLE */
   unsplashClass(): any {
@@ -51,15 +51,30 @@ export class LoginComponent  {
       position: 'relative',
     };
   }
+
   login(event: Event): any {
     event.preventDefault();
+
     if (this.form.valid) {
       const value = this.form.value;
       console.log(`'%c'USER: ${value.email} - PASSWORD: ${value.password}`, 'background: #222; color: #bada55');
+      //value.password = Md5.hashStr(value.password).toString();
+      let login: Login = new Login(value.email, value.password, '09/DL-0155/04/19', 2);
+      this.service.loginMIRA(login).subscribe(
+        respuesta => {
+          if (respuesta.mensaje == 'error') {
+            this.loginInvalid = true;
+          } else {
+            let token = btoa(respuesta.token);
+            console.log(token);
+            this.router.navigate(['/authenticate/' + token]);
+          }
+        }
+      );
     }
-  }  
+  }
 
-  
+
   /* loginMIRA() {
     this.login.password = Md5.hashStr(this.login.password).toString(); 
     this.service.loginMIRA(this.login).subscribe(

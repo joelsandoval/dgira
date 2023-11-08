@@ -27,7 +27,7 @@
             La contraseña es <strong>requerida</strong>
           </mat-error>
         </mat-form-field>
-        <button mat-raised-button style="background-color: #BC955C; color: white" type="submit">Ingresar</button>
+        <button mat-raised-button style="background-color: #BC955C; color: white" type="submit" (click)="login($event)">Ingresar</button>
       </form>
       <div class="mt-3">
         <a class="forgot-link" routerLink="/forgot-password">¿Olvidaste tu contraseña?</a>

@@ -20,8 +20,9 @@ export class AuthService {
   private AES = require("crypto-js/aes");
 
   private urlApi: string = environment.ApiConfig.rutaAuth;
-  private urlMIRA: string = environment.ApiConfig.rutaBase;  
-  private httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+  private urlMIRA: string = environment.ApiConfig.rutaBase;
+  private tokenDGIT: string = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzZW1hcm5hdEpXVCIsInN1YiI6IlVzdWFyaW97c2VnVXN1YXJpb3NJZDoyNCxzZWdVc3Vhcmlvc05vbWJyZVVzdWFyaW86ICdtaXJhLXdlYicsc2VnVXN1YXJpb3NQYXNzd29yZDogJyQyYSQxMCRjaTl0UW1XYmVUNGcuQWFUbC9hMnJlWDIyMjMxdjkxTHoxMXlrMnZXdkRCQzh3UUtTbndScSd9IiwiYXV0aG9yaXRpZXMiOlsiYml0YWNvcmFzIl0sImlhdCI6MTY5NjU3Mjg2NH0.RsVwyqefpIwEr_fjWFr71WVSpxKFFJ8gbYxu-2sQUeSd3v2VayounJNcoqSW2FfbrsR9XlOWCq0scvohZG7jMQ'  
+  private httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Authorization': `Bearer ${this.tokenDGIT}` }) };
   redirectUrl!: string;
 
   constructor(
