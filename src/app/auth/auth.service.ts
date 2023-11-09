@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Token } from '../model/token';
+import { ResponseDGIT, Token } from '../model/token';
 import { environment } from '../../environments/environment';
 import { MessageService } from '../messages/message.service';
 import { Observable, of } from 'rxjs';
@@ -24,6 +24,7 @@ export class AuthService {
   private tokenDGIT: string = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzZW1hcm5hdEpXVCIsInN1YiI6IlVzdWFyaW97c2VnVXN1YXJpb3NJZDoyNCxzZWdVc3Vhcmlvc05vbWJyZVVzdWFyaW86ICdtaXJhLXdlYicsc2VnVXN1YXJpb3NQYXNzd29yZDogJyQyYSQxMCRjaTl0UW1XYmVUNGcuQWFUbC9hMnJlWDIyMjMxdjkxTHoxMXlrMnZXdkRCQzh3UUtTbndScSd9IiwiYXV0aG9yaXRpZXMiOlsiYml0YWNvcmFzIl0sImlhdCI6MTY5NjU3Mjg2NH0.RsVwyqefpIwEr_fjWFr71WVSpxKFFJ8gbYxu-2sQUeSd3v2VayounJNcoqSW2FfbrsR9XlOWCq0scvohZG7jMQ'  
   private httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Authorization': `Bearer ${this.tokenDGIT}` }) };
   redirectUrl!: string;
+  private tokenRespuesta: ResponseDGIT = new ResponseDGIT();
 
   constructor(
     private http: HttpClient,
@@ -190,57 +191,59 @@ export class AuthService {
   }
 
 
-  decodeFromString(token: string): Token {
-    const jwt: Token = this.helper.decodeToken(token)!;
+  decodeFromString(token: string): ResponseDGIT {
+    let jwt: ResponseDGIT = this.helper.decodeToken(token)!;
+    const subu = JSON.parse(jwt.sub);
+    jwt.tok = subu;
     return jwt;
   }
   
  
   getUserName(): string {
-    const token: Token = this.decodeFromString(this.getToken());
+    const token: ResponseDGIT = this.decodeFromString(this.getToken());
     return token.sub;
   }
 
   getUserId(): number {
-    const token: Token = this.decodeFromString(this.getToken());
-    return token.userId;
+    const token: ResponseDGIT = this.decodeFromString(this.getToken());
+    return token.tok.idUsuario;
   }
 
-  getRole(): string {
-    const token: Token = this.decodeFromString(this.getToken());
-    return token.role; 
-  }
+  /* getRole(): string {
+    const token: ResponseDGIT = this.decodeFromString(this.getToken());
+    return token.tok.ro; 
+  } */
 
-  getRoles(): string[] {
-    const token: Token = this.decodeFromString(this.getToken());
+  /* getRoles(): string[] {
+    const token: ResponseDGIT = this.decodeFromString(this.getToken());
     return token.roles; 
-  }
+  } */
 
   getExp(): number {
-    const token: Token = this.decodeFromString(this.getToken());
+    const token: ResponseDGIT = this.decodeFromString(this.getToken());
     return token.exp; 
   }
 
   getIat(): number {
-    const jwt = this.decodeFromString(this.getToken());
-    return jwt.iat;
+    const token: ResponseDGIT = this.decodeFromString(this.getToken());
+    return token.iat;
   }
 
   getExpFecha(): Date {
-    const token: Token = this.decodeFromString(this.getToken());
-    const expira = new Date(token.exp);
+    const token: ResponseDGIT = this.decodeFromString(this.getToken());
+    const expira = new Date(token.exp * 1000);
     return expira; 
   }
 
-  getFecha(): string {
-    const token: Token = this.decodeFromString(this.getToken());
+  /* getFecha(): string {
+    const token: ResponseDGIT = this.decodeFromString(this.getToken());
     if (token.fecha === undefined) {
       token.fecha = new Date();
       return this.getCustomDate(token.fecha);
     } else {
       return token.fecha.toString();
     }
-  }
+  } */
 
   getCustomDate(date: Date) {
     const mm = date.getMonth() + 1; // getMonth() is zero-based

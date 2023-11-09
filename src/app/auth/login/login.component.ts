@@ -65,8 +65,8 @@ export class LoginComponent {
           if (respuesta.mensaje == 'error') {
             this.loginInvalid = true;
           } else {
+            console.log(respuesta.token);
             let token = btoa(respuesta.token);
-            console.log(token);
             this.router.navigate(['/authenticate/' + token]);
           }
         }

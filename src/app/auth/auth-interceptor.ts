@@ -16,7 +16,9 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     if (localStorage.getItem('token')) {
-      request = this.addToken(request, localStorage.getItem('token'));
+      console.log('si paso el toque');
+      console.log(localStorage.getItem('token')!);
+      request = this.addToken(request, localStorage.getItem('token')!);
     }
 
     return next.handle(request).pipe(
@@ -32,6 +34,8 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private addToken(request: HttpRequest<any>, token: string) {
+
+
     return request.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`

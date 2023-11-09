@@ -27,14 +27,14 @@ export class AuthenticateComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.auth.setToken(params['token']);
-      console.log('el toooken')
-      console.log(params['token']);
       if (this.auth.isTokenExpired()) {
         this.router.navigate(['login'])
       } else {
+
         const usu = this.auth.getUserId();
         this.auth.getCredencialesUser(usu).subscribe(
           cred => {
+            console.log(cred);
             if (cred.user) {
               this.nombre = cred.user.completo;
               const stri = JSON.stringify(cred);

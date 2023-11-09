@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'authenticate/:token', component: AuthenticateComponent },
   { path: 'visor', component: VisorComponent, canActivate: [AuthGuardService] },
-  { path: '', redirectTo: '/visor', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent},
 ];
 
