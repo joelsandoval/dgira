@@ -5,11 +5,13 @@ import { AuthenticateComponent } from './auth/authenticate/authenticate.componen
 import { AuthGuardService } from './auth/auth-guard.service';
 import { VisorComponent } from './visor/visor.component';
 import { NotFoundComponent } from './auth/not-found/not-found.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'authenticate/:token', component: AuthenticateComponent },
   { path: 'visor', component: VisorComponent, canActivate: [AuthGuardService] },
+  { path: 'profile', component: UserProfileComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent},
 ];

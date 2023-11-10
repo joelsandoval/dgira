@@ -19,8 +19,9 @@ export class AuthService {
 
   private AES = require("crypto-js/aes");
 
-  private urlApi: string = environment.ApiConfig.rutaAuth;
+  private urlAuth: string = environment.ApiConfig.rutaAuth;
   private urlMIRA: string = environment.ApiConfig.rutaBase;
+  private urlAdmin: string = environment.ApiConfig.rutaAdmin;
   private tokenDGIT: string = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzZW1hcm5hdEpXVCIsInN1YiI6IlVzdWFyaW97c2VnVXN1YXJpb3NJZDoyNCxzZWdVc3Vhcmlvc05vbWJyZVVzdWFyaW86ICdtaXJhLXdlYicsc2VnVXN1YXJpb3NQYXNzd29yZDogJyQyYSQxMCRjaTl0UW1XYmVUNGcuQWFUbC9hMnJlWDIyMjMxdjkxTHoxMXlrMnZXdkRCQzh3UUtTbndScSd9IiwiYXV0aG9yaXRpZXMiOlsiYml0YWNvcmFzIl0sImlhdCI6MTY5NjU3Mjg2NH0.RsVwyqefpIwEr_fjWFr71WVSpxKFFJ8gbYxu-2sQUeSd3v2VayounJNcoqSW2FfbrsR9XlOWCq0scvohZG7jMQ'  
   private httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json',  'Authorization': `Bearer ${this.tokenDGIT}` }) };
   redirectUrl!: string;
@@ -33,15 +34,16 @@ export class AuthService {
   ) {
   }
 
-  loginMIRA(login: Login): Observable<any> {        
-    return this.http.post(this.urlApi, login, this.httpOptions).pipe(
+  loginSINAT(login: Login): Observable<any> {  
+    console.log('entro al login sinat')      
+    return this.http.post(this.urlAuth, login, this.httpOptions).pipe(
       tap(_ => this.log(`autenticado`)),
       catchError(this.handleError<any>('no autenticado'))
     );
   }
 
   getCredencialesUser(user: number): Observable<Credenciales> {               
-    const urlC = `${this.urlMIRA}usuarios/credenciales/${user}`;
+    const urlC = `${this.urlAdmin}seguridad/credenciales/${user}`;
     return this.http.get<Credenciales>(urlC).pipe(
       tap(_ => this.log(`autenticado`)),
       catchError(this.handleError<Credenciales>('no autenticado'))

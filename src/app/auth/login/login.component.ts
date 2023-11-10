@@ -60,7 +60,7 @@ export class LoginComponent {
       console.log(`'%c'USER: ${value.email} - PASSWORD: ${value.password}`, 'background: #222; color: #bada55');
       //value.password = Md5.hashStr(value.password).toString();
       let login: Login = new Login(value.email, value.password, '09/DL-0155/04/19', 2);
-      this.service.loginMIRA(login).subscribe(
+      this.service.loginSINAT(login).subscribe(
         respuesta => {
           if (respuesta.mensaje == 'error') {
             this.loginInvalid = true;

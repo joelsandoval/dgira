@@ -8,7 +8,7 @@ export const environment = {
     rutaBase:  'http://localhost:8084/ws-dgira/',
     rutaSigeia: 'http://localhost:8084/ws-sigeia/',
     rutaSinat: 'http://localhost:8084/ws-sinat/',
-    rutaAdmin: 'http://localhost:8084/ws-admin/',
+    rutaAdmin: 'http://localhost:8084/ws-dgira-admin/',
     sinatApi: 'http://localhost:8084/sinat_api/',
     rutaAuth: 'https://app.semarnat.gob.mx/ws-authserver-desa/ws-sinat-tramites/seguridad/',
     rutaSigeiaWeb: 'https://mapas.semarnat.gob.mx/sigeia/#/authenticate/',
