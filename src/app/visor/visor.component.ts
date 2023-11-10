@@ -23,5 +23,9 @@ export class VisorComponent implements OnInit {
     this.vigente = this.auth.getExp();    
     this.iat = this.auth.getIat();
     this.token = this.auth.decode(); 
+    console.log('vigente?: ', new Date(this.vigente*1000));
+    console.log('issued at: ', this.iat);
+    console.log('token: ', this.token);
+    console.log('sub', JSON.parse(this.token.sub));
   }
 }
