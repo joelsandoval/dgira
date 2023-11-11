@@ -1,11 +1,142 @@
-<div class="container-fluid visor">
+<mat-toolbar style="width: 100%; background-color:#691C32; color: white">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>DGIRA - Sistemas</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+    </button>
+</mat-toolbar>
+<div class="container-fluid">
     <div class="row">
         <div class=" col col-sm-2" style="background-color: #691C32;">
-            <img src="./assets/img/fondo_2023_mira.png" width="300"
-                        alt="Página de inicio, Gobierno de México">
+            <img src="./assets/img/fondo_2023_mira.png" width="300" alt="Página de inicio, Gobierno de México">
         </div>
         <div class=" col col-sm-10">
-            <app-avisos></app-avisos>
+            <div class="container">
+                <br />
+                <div class="row">
+                    <div class="col col-md-3">
+                        <mat-card class="example-card ">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                                <mat-card-title>Trámites</mat-card-title>
+                                <mat-card-subtitle>Impacto Ambiental</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--<img mat-card-image src="./assets/img/mira_691C32.png" width="150" 
+                            alt="Monitor de Impacto y Riesgo Ambiental">-->
+                            <mat-card-content>
+                                <p>
+                                    Monitor de Impacto y Riesgo Ambiental
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button mat-button>SHARE</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-ofi"></div>
+                                <mat-card-title>Oficios</mat-card-title>
+                                <mat-card-subtitle>Control de Gestión</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--<img mat-card-image src="./assets/img/mira_691C32.png" width="150" 
+                            alt="Monitor de Impacto y Riesgo Ambiental">-->
+                            <mat-card-content>
+                                <p>
+                                    Monitor de Impacto y Riesgo Ambiental
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button mat-button>SHARE</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-op"></div>
+                                <mat-card-title>DGIRA's</mat-card-title>
+                                <mat-card-subtitle>Correspondencia</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--<img mat-card-image src="./assets/img/mira_691C32.png" width="150" 
+                            alt="Monitor de Impacto y Riesgo Ambiental">-->
+                            <mat-card-content>
+                                <p>
+                                    Monitor de Impacto y Riesgo Ambiental
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button mat-button>SHARE</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-arch"></div>
+                                <mat-card-title>Archivo</mat-card-title>
+                                <mat-card-subtitle>Control de Gestión</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--<img mat-card-image src="./assets/img/mira_691C32.png" width="150" 
+                            alt="Monitor de Impacto y Riesgo Ambiental">-->
+                            <mat-card-content>
+                                <p>
+                                    Monitor de Impacto y Riesgo Ambiental
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button mat-button>SHARE</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-sig"></div>
+                                <mat-card-title>SIGEIA</mat-card-title>
+                                <mat-card-subtitle>Control de Gestión</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--<img mat-card-image src="./assets/img/mira_691C32.png" width="150" 
+                            alt="Monitor de Impacto y Riesgo Ambiental">-->
+                            <mat-card-content>
+                                <p>
+                                    Sistema de Información Geográfica
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button mat-button>SHARE</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-ge"></div>
+                                <mat-card-title>GAEEL</mat-card-title>
+                                <mat-card-subtitle>Gacetas</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--<img mat-card-image src="./assets/img/mira_691C32.png" width="150" 
+                            alt="Monitor de Impacto y Riesgo Ambiental">-->
+                            <mat-card-content>
+                                <p>
+                                    Sistema de Información Geográfica
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button mat-button>SHARE</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

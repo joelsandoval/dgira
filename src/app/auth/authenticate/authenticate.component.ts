@@ -28,9 +28,10 @@ export class AuthenticateComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.auth.setToken(params['token']);
       if (this.auth.isTokenExpired()) {
+        console.log('esta expirado el token');
         this.router.navigate(['login'])
       } else {
-
+        console.log('entra a buscar credenciales');
         const usu = this.auth.getUserId();
         this.auth.getCredencialesUser(usu).subscribe(
           cred => {
@@ -53,6 +54,7 @@ export class AuthenticateComponent implements OnInit {
 
   verifySesion() {
     if (this.auth.isAuthenticated()) {
+      console.log('no llego aqui');
       this.router.navigate(['visor']);
     } else {
       this.auth.flushToken();

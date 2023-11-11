@@ -3,3 +3,42 @@
     min-height: 800px;
     background-color: white;
 }
+
+.example-card {
+    max-width: 350px;
+    margin: 20px;
+}
+
+.example-header-image {
+    background-image: url('../../assets/img/mira_691C32.png');
+    background-size: cover;
+}
+
+.example-header-sig {
+    background-image: url('../../assets/img/travel_explore_691C32.png');
+    background-size: cover;
+}
+
+.example-header-ofi {
+    background-image: url('../../assets/img/inbox_691C32.png');
+    background-size: cover;
+}
+
+.example-header-arch {
+    background-image: url('../../assets/img/inventory_691C32.png');
+    background-size: cover;
+}
+
+.example-header-op {
+    background-image: url('../../assets/img/outbox_691C32.png');
+    background-size: cover;
+}
+
+.example-header-ge {
+    background-image: url('../../assets/img/gaceta_691C32.png');
+    background-size: cover;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}

@@ -14,8 +14,6 @@ import { Md5 } from 'ts-md5';
 })
 export class LoginComponent {
 
-  
-  //token!: string;
   loginInvalid!: boolean;
   form!: FormGroup;
 
@@ -57,15 +55,16 @@ export class LoginComponent {
 
     if (this.form.valid) {
       const value = this.form.value;
-      console.log(`'%c'USER: ${value.email} - PASSWORD: ${value.password}`, 'background: #222; color: #bada55');
+      
       //value.password = Md5.hashStr(value.password).toString();
-      let login: Login = new Login(value.email, value.password, '09/DL-0155/04/19', 2);
+      let login: Login = new Login(value.email, value.password);
       this.service.loginSINAT(login).subscribe(
         respuesta => {
           if (respuesta.mensaje == 'error') {
+            console.log(`'%c'RESPONSE: ${respuesta}`, 'background: #222; color: #bada55');
             this.loginInvalid = true;
           } else {
-            console.log(respuesta.token);
+            console.log(`TOKEN: ${respuesta.token}`, 'background: #222; color: #bada55');
             let token = btoa(respuesta.token);
             this.router.navigate(['/authenticate/' + token]);
           }
@@ -73,20 +72,5 @@ export class LoginComponent {
       );
     }
   }
-
-
-  /* loginMIRA() {
-    this.login.password = Md5.hashStr(this.login.password).toString(); 
-    this.service.loginMIRA(this.login).subscribe(
-      token => {
-        if(token.error){          
-          this.loginInvalid = true; 
-        } else {       
-          this.token = btoa(token.object.access_token);
-          this.router.navigate(['/authenticate/' + this.token ]);
-        }
-      }
-    );
-  } */
 
 }
