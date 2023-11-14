@@ -70,14 +70,14 @@ export class UtileriasService {
         catchError(this.handleError<string>('getTramites')));
   }
 
-  getFechaFutura(fecha: String, dias: number): Observable<Date> {
+  getFechaFutura(fecha: string, dias: number): Observable<Date> {
     const url = `${this.tramiteUrl}fecha_futura/${fecha},${dias}`;
     return this.http.get<Date>(url)
       .pipe(tap(_ => this.log('trámites recuperados')),
         catchError(this.handleError<Date>('getTramites')));
   }
 
-  getDiasHabiles(fechaIni: String, fechaFin: String): Observable<number> {
+  getDiasHabiles(fechaIni: string, fechaFin: string): Observable<number> {
     const url = `${this.tramiteUrl}dias_habiles/${fechaIni},${fechaFin}`;
     return this.http.get<number>(url)
       .pipe(tap(_ => this.log('trámites recuperados')),
