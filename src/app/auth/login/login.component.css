@@ -68,10 +68,11 @@
 }
 
 .login-welcome-text {
+    font-family: Montserrat, sans-serif;
     color: white;
     letter-spacing: 0.03rem;
     margin: 0 0 2rem 3rem;
-    font-size: 2.75rem;
+    font-size: 2.95rem;
     position: relative;
     z-index: 5;
     animation: slideright 2s ease-out;

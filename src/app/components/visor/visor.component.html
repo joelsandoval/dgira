@@ -1,0 +1,247 @@
+<mat-toolbar style="width: 100%; background-color:#691C32; color: white">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>apps</mat-icon>
+    </button>
+    <span>DGIRA - Aplicaciones</span>
+    <span class="example-spacer"></span>
+    <span style="font-size: 0.9rem;">Joel Sandoval</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>account_box</mat-icon>
+          <span>Mi Perfil</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          <span>Cerrar sesión</span>
+        </button>
+      </mat-menu>
+</mat-toolbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-2 " style="background-color: #691C32;">
+            <img src="./assets/img/fondo_2023_mira.png" width="300" alt="Página de inicio, Gobierno de México">
+        </div>
+        <div class=" col col-md-10">
+            <div class="container">
+                <br />
+                <div class="row">
+                    <div class="col col-md-3">
+                        <mat-card class="example-card ">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header">
+                                    <mat-icon class="icono" style="color:darkturquoise;">fact_check</mat-icon>
+                                </div>
+                                <mat-card-title>Trámites</mat-card-title>
+                                <mat-card-subtitle>Impacto Ambiental</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="./assets/img/card_tramites.png"
+                                alt="Monitor de Impacto y Riesgo Ambiental" (click)="goToUrl()">
+                            <mat-card-content>
+                                <mat-list>
+                                    <mat-list-item>
+                                        <div matListItemTitle>
+                                            <span class="menu-card">En evaluación</span>
+                                            <a href=""><strong class="float-end">73</strong></a> 
+                                            <!-- <button mat-icon-button class="float-end"
+                                                aria-label="Example icon button with a vertical three dot icon">
+                                                <mat-icon>more_horiz</mat-icon>
+                                            </button> -->
+                                        </div>
+                                        <!-- <div matListItemLine>Trámites pendientes</div> -->
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <div matListItemTitle>
+                                            <span class="menu-card">Por vencer</span>
+                                            <a href=""><strong class="float-end">5</strong></a> 
+                                            <!-- <button mat-icon-button class="float-end"
+                                                aria-label="Example icon button with a vertical three dot icon">
+                                                <mat-icon>alarm</mat-icon>
+                                            </button> -->
+                                        </div>
+                                        <!-- <div matListItemLine>Trámites pendientes</div> -->
+                                    </mat-list-item>
+                                </mat-list>
+                            </mat-card-content>
+                            <!-- <mat-card-actions align="end">
+                                <button mat-button (click)="goToUrl()">más...</button>
+                            </mat-card-actions> -->
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header">
+                                    <mat-icon class="icono" style="color:steelblue;">file_copy</mat-icon>
+                                </div>
+                                <mat-card-title>Oficios</mat-card-title>
+                                <mat-card-subtitle>Control de Gestión</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="./assets/img/card_oficios.png" alt="Control de Gestión - Oficios">
+                            <mat-card-content>
+                                <mat-list>
+                                    <mat-list-item>
+                                        <div matListItemTitle>
+                                            <span class="menu-card">En mi bandeja</span>
+                                            <a href=""><strong class="float-end">2</strong></a>
+                                        </div>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <div matListItemTitle>
+                                            <span class="menu-card">En proceso</span>
+                                            <a href=""><strong class="float-end">5</strong></a> 
+                                        </div>
+                                    </mat-list-item>
+                                </mat-list>
+                            </mat-card-content>
+                            <!-- <mat-card-actions align="end">
+                                <button mat-button>mas...</button>
+                            </mat-card-actions> -->
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header">
+                                    <mat-icon class="icono" style="color:firebrick ;">move_to_inbox</mat-icon>
+                                </div>
+                                <mat-card-title>DGIRA's</mat-card-title>
+                                <mat-card-subtitle>Correspondencia</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="./assets/img/card_correspondencia.png"
+                                alt="Monitor de Impacto y Riesgo Ambiental">
+                            <mat-card-content>
+                                <mat-list>
+                                    <mat-list-item>
+                                        <div matListItemTitle>
+                                            <span class="menu-card">En mi bandeja</span>
+                                            <a href=""><strong class="float-end">2</strong></a>
+                                        </div>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <div matListItemTitle>
+                                            <span class="menu-card">Urgentes</span>
+                                            <a href=""><strong class="float-end">5</strong></a> 
+                                        </div>
+                                    </mat-list-item>
+                                </mat-list>
+                            </mat-card-content>
+                            <!-- <mat-card-actions align="end">
+                                <button mat-button>mas..</button>
+                            </mat-card-actions> -->
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header">
+                                    <mat-icon class="icono" style="color: orange;">inventory</mat-icon>
+                                </div>
+                                <mat-card-title>Archivo</mat-card-title>
+                                <mat-card-subtitle>de Trámite</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="./assets/img/card_archivo.png"
+                                alt="Monitor de Impacto y Riesgo Ambiental">
+                            <mat-card-content>
+                                <mat-list>
+                                    <mat-list-item>
+                                        <div matListItemTitle>
+                                            <span class="menu-card">Solicitudes</span>
+                                            <a href=""><strong class="float-end">2</strong></a>
+                                        </div>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <div matListItemTitle>
+                                            <span class="menu-card">Préstamos</span>
+                                            <a href=""><strong class="float-end">5</strong></a> 
+                                        </div>
+                                    </mat-list-item>
+                                </mat-list>
+                            </mat-card-content>
+                            <!-- <mat-card-actions align="end">
+                                <button mat-button>mas..</button>
+                            </mat-card-actions> -->
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header">
+                                    <mat-icon class="icono" style="color: darkgreen;">public</mat-icon>
+                                </div>
+                                <mat-card-title>SIGEIA 7.5</mat-card-title>
+                                <mat-card-subtitle>Información Geográfica</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="./assets/img/card_sigeia.png"
+                                alt="Monitor de Impacto y Riesgo Ambiental">
+                            <!-- <mat-card-content>
+                    
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button mat-button>mas..</button>
+                            </mat-card-actions> -->
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header">
+                                    <mat-icon class="icono" style="color:slateblue;">newspaper</mat-icon>
+                                </div>
+                                <mat-card-title>GAEEL 3.0</mat-card-title>
+                                <mat-card-subtitle>Gaceta Ecológica</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="./assets/img/card_gaceta.png" [routerLink]="['../gaeel']"
+                                alt="Monitor de Impacto y Riesgo Ambiental">
+                            <!-- <mat-card-content>
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button mat-button>mas..</button>
+                            </mat-card-actions> -->
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header">
+                                    <mat-icon class="icono" style="color:orangered;">people</mat-icon>
+                                </div>
+                                <mat-card-title>Administrativo</mat-card-title>
+                                <mat-card-subtitle>y Recursos Humanos</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="./assets/img/card_admin.png" [routerLink]="['../admin']"
+                                alt="Administrativo DGIRA, Recursos Humanos y Materiales">
+                            <!-- <mat-card-content>
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button mat-button>mas..</button>
+                            </mat-card-actions> -->
+                        </mat-card>
+                    </div>
+                    <div class="col col-md-3">
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header">
+                                    <mat-icon class="icono" style="color:darkslategray;">settings</mat-icon>
+                                </div>
+                                <mat-card-title>Configuración</mat-card-title>
+                                <mat-card-subtitle>del Sistema</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="./assets/img/card_sys.png" [routerLink]="['../sys-admin']"
+                                alt="Configuración del sistema">
+                            <!-- <mat-card-content>
+                            </mat-card-content>
+                            <mat-card-actions align="end">
+                                <button mat-button>mas..</button>
+                            </mat-card-actions> -->
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<ng-http-loader></ng-http-loader>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
-import { Token } from '../../model/token';
+import { ResponseDGIT } from '../../model/token';
 import * as CryptoJS from 'crypto-js';
 
 @Component({
@@ -15,7 +15,7 @@ import * as CryptoJS from 'crypto-js';
 export class AuthenticateComponent implements OnInit {
 
   token!: string;
-  tokenD!: Token;
+
   nombre!: string;
 
   constructor(

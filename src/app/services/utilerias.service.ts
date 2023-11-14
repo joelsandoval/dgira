@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-import { MessageService } from '../messages/message.service';
+import { MessageService } from '../components/messages/message.service';
 
 import { environment } from '../../environments/environment';
 import { SysAlertas } from '../model/sys-alertas';

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Token } from '../model/token';
-import { AuthService } from '../auth/auth.service';
+import { ResponseDGIT } from '../../model/token';
+import { AuthService } from '../../auth/auth.service';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
-import { PermisosO } from '../model/credenciales';
+import { PermisosO } from '../../model/credenciales';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 export class TopBarComponent implements OnInit {
   
   token!: string;
-  tokenD!: Token;
+  tokenD!: ResponseDGIT;
   permisos: string[] = [];
   user!: number;
 

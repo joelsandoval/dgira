@@ -1,0 +1,44 @@
+.visor {
+    /* background-image: url("https://www.gob.mx/cms/uploads/image/file/599366/hands-4163053_1280.jpg") !important; */
+    min-height: 800px;
+    background-color: white;
+}
+
+.example-card {
+    max-width: 300px;
+    margin: 10px;
+}
+
+
+.example-header {
+    font-family: Montserrat, 'sans-serif';
+    background-size: cover;
+    border-radius:20%;
+}
+
+.icono {
+    margin-top: 8px;
+    margin-left: 8px;
+    transform: scale(2);
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.menu-card {
+    color:darkslategray; 
+    font-style: italic;
+}
+
+img {
+    cursor: pointer;
+}
+
+mat-card-title {
+    font-family: Montserrat, 'sans-serif';
+}
+
+mat-card-subtitle {
+    font-family: Montserrat, 'sans-serif';
+}

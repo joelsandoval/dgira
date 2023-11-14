@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, tap } from 'rxjs/operators';
 import { MessageService } from '../messages/message.service';
 
-import { EvalEntidad } from '../model/eval-entidad';
-import { environment } from '../../environments/environment';
-import { EvaluacionEstatus } from '../model/sinat/evaluacion-estatus';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

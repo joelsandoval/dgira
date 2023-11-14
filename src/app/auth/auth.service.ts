@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { ResponseDGIT, Token } from '../model/token';
+import { ResponseDGIT } from '../model/token';
 import { environment } from '../../environments/environment';
-import { MessageService } from '../messages/message.service';
+import { MessageService } from '../components/messages/message.service';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { Login } from '../model/login';
@@ -187,8 +187,10 @@ export class AuthService {
     }
   }
   
-  decode(): Token {
-    const jwt: any = this.helper.decodeToken(this.getToken());
+  decode(): ResponseDGIT {
+    let jwt: any = this.helper.decodeToken(this.getToken());
+    const subu = JSON.parse(jwt.sub);
+    jwt.tok = subu;
     return jwt;
   }
 

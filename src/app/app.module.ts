@@ -6,12 +6,11 @@ import { AppComponent } from './app.component';
 import { AuthenticateComponent } from './auth/authenticate/authenticate.component';
 import { LoginComponent } from './auth/login/login.component';
 import { NotFoundComponent } from './auth/not-found/not-found.component';
-import { VisorComponent } from './visor/visor.component';
-import { AvisosComponent } from './visor/avisos/avisos.component';
+import { VisorComponent } from './components/visor/visor.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { MessagesComponent } from './messages/messages.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { MessagesComponent } from './components/messages/messages.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from './auth/auth.service';
@@ -21,9 +20,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card'; 
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { MatListModule } from '@angular/material/list'; 
+import { MatMenuModule } from '@angular/material/menu'; 
+import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 
 
@@ -34,7 +35,6 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     AuthenticateComponent,
     VisorComponent,
     NotFoundComponent,
-    AvisosComponent,
     TopBarComponent,
     MessagesComponent,
     UserProfileComponent
@@ -53,7 +53,9 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule,
+    MatMenuModule
   ],
   providers: [
     AuthService,
