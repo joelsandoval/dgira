@@ -1,1 +1,103 @@
-<p>admin works!</p>
+<mat-sidenav-container class="example-container arriba">
+    <mat-sidenav #sidenav mode="side" opened style="width:300px;" (keydown.escape)="close('escape')" disableClose>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Recursos Humanos
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item class="navega" routerLink="empleados">
+                        <mat-icon>people</mat-icon> &nbsp; Empleados
+                    </a>
+                </mat-nav-list>
+
+                <mat-nav-list>
+                    <a mat-list-item class="navega" routerLink="puestos">
+                        <mat-icon style="color:darkgreen">assignment_ind</mat-icon> &nbsp; Puestos
+                    </a>
+                </mat-nav-list>
+
+                <mat-nav-list>
+                    <a mat-list-item class="navega" routerLink="adscripcion">
+                        <mat-icon style="color:darkgreen">assignment_ind</mat-icon> &nbsp; Adscripcion
+                    </a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Administración SIGEIA
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item class="navega" routerLink="reporteproy">
+                        <mat-icon style="color:darkgreen">receipt</mat-icon> &nbsp;Reporte proyectos
+                    </a>
+                    <a mat-list-item class="navega" routerLink="be-capa">
+                        <mat-icon style="color:darkgreen">receipt</mat-icon> &nbsp;Búsqueda espacial
+                    </a>
+                    
+                    <a mat-list-item class="navega" routerLink="metadatos">
+                        <mat-icon color="warn">description</mat-icon> &nbsp;Metadatos
+                    </a>
+                    <a mat-list-item class="navega" routerLink="bitacambios">
+                        <mat-icon color="primary">fact_check</mat-icon> &nbsp;Bitácora cambios
+                    </a>
+                </mat-nav-list>
+                
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Seguridad
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item class="navega" routerLink="usuarios">
+                        <mat-icon>person</mat-icon> &nbsp;Usuarios
+                    </a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Informática
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Utilerías
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item class="navega" routerLink="mensajes">
+                        <mat-icon>message</mat-icon> &nbsp;Usuarios
+                    </a>
+                    <a mat-list-item class="navega" routerLink="roles">
+                        <mat-icon>question_answer</mat-icon> &nbsp;Usuarios
+                    </a>
+                    <a mat-list-item class="navega" routerLink="correspondencia">
+                        <mat-icon>mail_outline</mat-icon> &nbsp;Correspondencia
+                    </a>
+                </mat-nav-list>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <p>
+            <button mat-icon-button color="primary" (click)="sidenav.toggle();seve=!seve">
+                <mat-icon *ngIf="!seve">keyboard_arrow_right</mat-icon>
+                <mat-icon *ngIf="seve">keyboard_arrow_left</mat-icon>
+            </button>
+        </p>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

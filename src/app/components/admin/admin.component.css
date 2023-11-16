@@ -1,0 +1,18 @@
+.example-container {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+    min-height: 600px;
+    overflow: scroll;
+}
+
+.navega {
+    font-size: 1em;
+    height: 33px!important;
+}
+
+.verde {
+    color: darkgreen;
+}
