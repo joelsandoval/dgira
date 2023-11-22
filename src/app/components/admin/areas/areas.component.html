@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row proyecto">
+        <div class="col col-md-10">
+            <h3>Puestos DGIRA</h3>
+        </div>
+    </div>
+    <mat-form-field>
+        <mat-label>Busca en tabla</mat-label>
+        <input matInput (keyup)="applyFilter($event)">
+    </mat-form-field>
+
+    <button class="btn btn-sm btn-success float-end" matTooltip="Agregar nuevo Puesto" style="margin-top: 15px;" [routerLink]="['../puestosN', 0]">
+        <mat-icon>assignment_add </mat-icon>
+    </button>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" id="table2" aria-label="listapuestos">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell scope="col-md-2" *matHeaderCellDef mat-sort-header> id </th>
+            <td mat-cell *matCellDef="let puesto">
+                {{ puesto.id }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombrePuesto">
+            <th mat-header-cell scope="col" *matHeaderCellDef mat-sort-header> Puesto </th>
+            <td mat-cell *matCellDef="let puesto" class="celda">
+                {{puesto.nombrePuesto}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nivelEstructura">
+            <th mat-header-cell scope="col" *matHeaderCellDef mat-sort-header> Nivel </th>
+            <td mat-cell *matCellDef="let puesto" class="celda">
+                {{puesto.nivelEstructura}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="codigoPuesto">
+            <th mat-header-cell scope="col" *matHeaderCellDef mat-sort-header> Codigo del Puesto </th>
+            <td mat-cell *matCellDef="let puesto" class="celda">
+                {{puesto.codigoPuesto}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="area">
+            <th mat-header-cell scope="col" *matHeaderCellDef mat-sort-header> Área </th>
+            <td mat-cell *matCellDef="let puesto" class="celda">
+                {{puesto.area}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="direccion">
+            <th mat-header-cell scope="col" *matHeaderCellDef mat-sort-header> Dirección </th>
+            <td mat-cell *matCellDef="let puesto" class="celda">
+                {{puesto.direccion}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actualiza">
+            <th mat-header-cell scope="col-md-2" *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let puesto" class="celda centrar">
+                <button mat-icon-button color="primary" matTooltip="Editar Puesto" [routerLink]="['../puestosN', puesto.id]">
+                    <mat-icon>manage_accounts</mat-icon>
+                </button>
+            </td>
+        </ng-container> 
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>        
+    </table>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+    </mat-paginator>
+</div>
+<ng-http-loader></ng-http-loader>
