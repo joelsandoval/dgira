@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ResponseDGIT } from '../../model/token';
 import { AuthService } from '../../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-visor',
@@ -12,12 +13,14 @@ export class VisorComponent implements OnInit {
   iat!: number;
   vigente!: number;
   fechaExpira!: Date;
-  token!: ResponseDGIT
-
+  token!: ResponseDGIT;
+  tokenS!: string;
+  jokenS!: string;
 
   constructor(
     private auth: AuthService,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private router: Router
   ) { 
     
   }
@@ -25,15 +28,21 @@ export class VisorComponent implements OnInit {
   ngOnInit() {  
     this.vigente = this.auth.getExp();    
     this.iat = this.auth.getIat();
-    this.token = this.auth.decode(); 
-    console.log(this.token);
+    this.token = this.auth.decode();
+    this.tokenS = this.auth.getToken();
+    this.jokenS = this.auth.getJoken();
   }
 
-  goToUrl(): void {
+  goToUrl(destino: number): void {
     let a = this.document.createElement('a');
     a.target="_blank";
-    a.href='http://localhost:4201/mira-web/#/tramites-mod/2/1/-/evaluacion-ev/0/0';
+    a.href=`http://localhost:4202/mira-web/#/authenticate/${this.tokenS}/${destino}`;
     a.click();
+  }
+
+  logout(): void {    
+    this.auth.flushToken();
+    this.router.navigate(['/login']);
   }
 
 }

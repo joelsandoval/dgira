@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
-import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +19,8 @@ export class LoginComponent {
   constructor(
     private service: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private auth: AuthService
   ) { }
 
   /* AQUI DEFINIMOS LA TEMATICA DE NUESTRA IMAGEN*/
@@ -61,12 +61,13 @@ export class LoginComponent {
       this.service.loginSINAT(login).subscribe(
         respuesta => {
           if (respuesta.mensaje == 'error') {
-            console.log(`'%c'RESPONSE: ${respuesta}`, 'background: #222; color: #bada55');
+            console.log(respuesta);
             this.loginInvalid = true;
           } else {
-            console.log(`TOKEN: ${respuesta.token}`, 'background: #222; color: #bada55');
+            console.log(respuesta.token);
             let token = btoa(respuesta.token);
-            this.router.navigate(['/authenticate/' + token]);
+            this.auth.setToken(token);
+            this.router.navigate([`/authenticate/${token}`]);
           }
         }
       );

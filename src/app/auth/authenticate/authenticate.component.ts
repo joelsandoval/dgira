@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
-import { ResponseDGIT } from '../../model/token';
 import * as CryptoJS from 'crypto-js';
 
 @Component({
@@ -15,7 +14,6 @@ import * as CryptoJS from 'crypto-js';
 export class AuthenticateComponent implements OnInit {
 
   token!: string;
-
   nombre!: string;
 
   constructor(
@@ -27,6 +25,7 @@ export class AuthenticateComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.auth.setToken(params['token']);
+
       if (this.auth.isTokenExpired()) {
         console.log('esta expirado el token');
         this.router.navigate(['login'])
@@ -41,12 +40,11 @@ export class AuthenticateComponent implements OnInit {
               const stri = JSON.stringify(cred);
               const cryptOut = CryptoJS.AES.encrypt(stri, 'dgira').toString();
               this.auth.setJoken(cryptOut);
-              this.verifySesion();
+              this.router.navigate(['visor']);
             } else {
               this.router.navigate(['login'])
             }
-          },
-          err => this.router.navigate(['login'])
+          }
         )
       }
     });

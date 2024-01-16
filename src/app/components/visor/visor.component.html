@@ -13,7 +13,7 @@
           <mat-icon>account_box</mat-icon>
           <span>Mi Perfil</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="logout()">
           <mat-icon>logout</mat-icon>
           <span>Cerrar sesión</span>
         </button>
@@ -38,7 +38,7 @@
                                 <mat-card-subtitle>Impacto Ambiental</mat-card-subtitle>
                             </mat-card-header>
                             <img mat-card-image src="./assets/img/card_tramites.png"
-                                alt="Monitor de Impacto y Riesgo Ambiental" (click)="goToUrl()">
+                                alt="Monitor de Impacto y Riesgo Ambiental" (click)="goToUrl(1)">
                             <mat-card-content>
                                 <mat-list>
                                     <mat-list-item>

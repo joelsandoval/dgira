@@ -82,6 +82,10 @@ export class AuthService {
   setJoken(joken: string) {
     localStorage.setItem('joken', joken);
   }
+
+  getJoken(): string {
+    return localStorage.getItem('joken')!;
+  }
   
   getPermisos(): string[] {
     return this.decryptJoken().permisos;
