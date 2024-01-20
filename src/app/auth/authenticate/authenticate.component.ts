@@ -25,7 +25,6 @@ export class AuthenticateComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.auth.setToken(params['token']);
-
       if (this.auth.isTokenExpired()) {
         console.log('esta expirado el token');
         this.router.navigate(['login'])

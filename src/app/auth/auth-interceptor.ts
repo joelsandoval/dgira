@@ -14,9 +14,12 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('interceptó');
+    console.log(request);
 
     if (localStorage.getItem('token')) {      
       if(request.url != 'https://app.semarnat.gob.mx/ws-authserver-desa/ws-sinat-tramites/seguridad/') {
+        console.log('hay token????');
           request = this.addToken(request, localStorage.getItem('token')!);
       }
     }

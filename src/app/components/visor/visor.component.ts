@@ -36,7 +36,7 @@ export class VisorComponent implements OnInit {
   goToUrl(destino: number): void {
     let a = this.document.createElement('a');
     a.target="_blank";
-    a.href=`http://localhost:4202/mira-web/#/authenticate/${this.tokenS}/${destino}`;
+    a.href=`http://localhost:4202/mira-web/#/authenticate/${this.tokenS}`;
     a.click();
   }
 
